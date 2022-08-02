@@ -1,0 +1,207 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+#head{
+  padding: 4vh;
+  background-color:rgb(68,121,255) ;
+  position: sticky;
+  top:0px;
+   border-bottom: 1px solid white;
+   z-index: 1;
+}
+
+
+#sub1{
+  background-color: rgb(68,121,255);
+  
+}
+#sub1-1{
+  text-align: center;
+  border-top: 1px solid transparent;
+  padding-bottom: 10vh;
+}
+#sub1-2{
+  display: flex;
+  border-top: 1px solid white;
+  padding-bottom: 9vh;
+  padding-top: 3vh;
+
+}
+#sub1-2 > div{
+  padding: 0 10vh;
+}
+#sub1 h2, h1, p{
+  color: white;
+  
+}
+h1,h2{
+  font-family: 'Gt super text book', Georgia, sans-serif;
+  font-weight: 400;
+  
+}
+
+h1{
+  font-size: 7.3vw;
+  margin-bottom: 0px;
+}
+h2{
+ 
+    font-size: 3.1vw;
+}
+p{
+  font-size: 18px;
+  font-weight: 600;
+}
+
+#button1{
+ font-family: 'Soehne web buch', sans-serif;
+ font-size: 22px;
+ line-height: 100%;
+ letter-spacing: -0.2px;
+ cursor: pointer;
+ position: relative;
+ height: auto;
+ padding-right: 32px;
+ padding-bottom: 10px;
+ padding-top: 10px;
+ padding-left: 32px;
+ border-radius: 21px;
+ background-color: white;
+ border: 1px solid white;
+ margin: 5vh;
+
+ 
+}
+#button1:hover{
+  background-color: transparent;
+  color: white;
+}
+
+#sub2-1 h2{
+  text-align: center;
+}
+#sub2-2{
+ display: grid;
+ grid-template-columns: repeat(2,1fr);
+
+}
+.relative img{
+  width: 26vh;
+  
+}
+.relative{
+  width: fit-content;
+  border: 1px solid red;
+
+}
+.relative{
+  position: relative;
+left:50%;
+}
+#sub2-2-2 h3{
+  font-weight: 400;
+  font-size: 3.5vh;
+}
+
+#buttons{
+  
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-gap: 1%;
+}
+#buttons button{
+background-color: transparent;
+border: none;
+  font-size: 30px;
+}
+
+#sub3{
+  background-color: rgb(188,223,255);
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+}
+
+#sub3-1 h1{
+  color: black;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+
+#sub3-2-1{
+ margin: auto;
+  width: fit-content;
+ 
+ 
+}
+#sub3-2-1{
+  position: relative;
+  bottom: -40px;
+}
+
+#button2{
+  font-family: 'Soehne web buch', sans-serif;
+  font-size: 22px;
+  line-height: 100%;
+  letter-spacing: -0.2px;
+  cursor: pointer;
+  position: relative;
+  height: auto;
+  padding-right: 32px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-left: 32px;
+  border-radius: 21px;
+  background-color: black;
+  border: 1px solid white;
+  color: white;
+ 
+ }
+ #button2:hover{
+   background-color: rgba(0, 0, 0, 0.79);
+ 
+ }
+
+#foot{
+  padding: 4vh;
+  color: red;
+  font-size: 25vh;
+}
