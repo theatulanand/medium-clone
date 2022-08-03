@@ -25,41 +25,41 @@ const Home = () => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const [data,setData] = useState([])
-  const [isloading,setLoading] = useState(true)
+  const [data, setData] = useState([])
+  const [isloading, setLoading] = useState(true)
 
 
   useEffect(() => {
     handleFetch()
-  },[])
+  }, [])
 
   const handleFetch = () => {
     setLoading(true)
     fetch(`http://localhost:8080/blogs`)
-    .then((res) => res.json())
-    .then((res) => {
-      setData(res);
-      setLoading(false)
-    })
+      .then((res) => res.json())
+      .then((res) => {
+        setData(res);
+        setLoading(false)
+      })
   }
 
-    var months = ['January','February','March', 'April','May','June','July','August','September','October','November','December'];
+  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
   return (
     <div>
       <div style={{ backgroundColor: "#ffc017" }}>
         <Navbar />
-        <div className='Home_BL_Banner' style={{marginTop:"10px"}}>
+        <div className='Home_BL_Banner' style={{ marginTop: "10px" }}>
           <div style={{ paddingLeft: '120px' }}>
-             <h1 style={{ fontSize: "100px", fontWeight: "500" }}>Stay curious.</h1>
+            <h1 style={{ fontSize: "100px", fontWeight: "500" }}>Stay curious.</h1>
             <p style={{ fontSize: "30px", fontWeight: "500", color: "black" }}>
-             Discover stories, thinking, and expertise
+              Discover stories, thinking, and expertise
               <br />
               from writers on any topic.
             </p>
             <br />
-            <button onClick={handleOpen} style={{ fontSize: "20px", backgroundColor: "black", color: "white", borderRadius: "30px", height: "45px", width: "200px" }}>
-              Start Reading</button>
+            <button onClick={handleOpen} style={{ cursor: "pointer", fontSize: "20px", backgroundColor: "black", color: "white", borderRadius: "30px", height: "45px", width: "200px" }}>
+              Start Reading </button>
           </div>
           <div className='mmm'>
             <img src="./mm.png" alt="" />
@@ -78,34 +78,34 @@ const Home = () => {
       <div className='home_bl_bottom'>
         <div>
           {
-            isloading?<>
-            <Skeleton variant="text" />
-            <Skeleton variant="circular" width={40} height={40} />
-            <Skeleton variant="rectangular" width={210} height={118} />
-            </>: 
-            data.map((el) => (
-              <div style={{display:"grid",gridTemplateColumns:"2fr 1fr",marginTop:"50px"}}>
-                <div>
-                <div style={{display:"flex"}}>
-                <Avatar alt="Remy Sharp" src={el.avatar} /> <h5>{el.author}</h5>
-              </div>
-              <div>
-                <h3>{el.title}</h3>
-              </div>
-              <div className='post-details-div' style={{color:"grey"}}>
-                <span>{Math.floor(Math.random()*31)+1} {months[Math.floor(Math.random()*months.length)]} </span>
-                <span>{Math.floor(Math.random()*10)+1} min read</span>
-              </div>
-              </div>
-              <div>
-                <img style={{width:"180px",height:"130px"}} src={el.thumbnail} alt="thumbnail" />
-              </div>
-              </div>
-            ))
+            isloading ? <>
+              <Skeleton variant="text" />
+              <Skeleton variant="circular" width={40} height={40} />
+              <Skeleton variant="rectangular" width={210} height={118} />
+            </> :
+              data.map((el) => (
+                <div key= {el.id} style={{ cursor: "pointer", display: "grid", gridTemplateColumns: "2fr 1fr", marginTop: "50px" }}>
+                  <div>
+                    <div style={{ display: "flex" }}>
+                      <Avatar alt="Remy Sharp" src={el.avatar} /> <h5 style={{ marginTop: "12px", marginLeft: "5px" }}>{el.author}</h5>
+                    </div>
+                    <div>
+                      <h3>{el.title}</h3>
+                    </div>
+                    <div className='post-details-div' style={{ color: "grey" }}>
+                      <span>{Math.floor(Math.random() * 31) + 1} {months[Math.floor(Math.random() * months.length)]} </span>
+                      <span>{Math.floor(Math.random() * 10) + 1} min read</span>
+                    </div>
+                  </div>
+                  <div>
+                    <img style={{ width: "180px", height: "130px" }} src={el.thumbnail} alt="thumbnail" />
+                  </div>
+                </div>
+              ))
           }
         </div>
         <div>
-          <div  className="discover">
+          <div className="discover">
             <div >
               <h4>DISCOVER MORE OF WHAT MATTERS TO YOU</h4>
 

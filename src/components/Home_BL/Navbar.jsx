@@ -33,8 +33,8 @@ const Navbar = () => {
                 <p>Our Story</p>
                 <p>Membership</p>
                 <p>Write</p>
-                <p onClick={handleOpen}>Sign in</p>
-                <button onClick={handleOpen} style={{ backgroundColor: "black", width: "120px", color: "white", borderRadius: "30px", height: "45px", marginTop: "10px", fontWeight: "bold" }}>
+                <p style={{cursor: "pointer",}} onClick={handleOpen}>Sign in</p>
+                <button onClick={handleOpen} style={{ cursor: "pointer", backgroundColor: "black", width: "120px", color: "white", borderRadius: "30px", height: "45px", marginTop: "10px", fontWeight: "bold" }}>
                     Get Started</button>
                 <Modal
                     open={open}
@@ -51,7 +51,7 @@ const Navbar = () => {
                         </Typography>
                         <br />
                          <Typography  id="modal-modal-title" variant="h6" component="h2">
-                            <button style={{padding:"2%",width:"70%",backgroundColor:"white",border:"1px solid #cecece",color:"grey",fontSize:"14px",textAlign:"left"}}><FacebookIcon color='primary'/> Sign up with Facebook</button>
+                            <button style={{padding:"2%",width:"70%",backgroundColor:"white",border:"1px solid #cecece",color:"grey",fontSize:"14px",textAlign:"left"}}><FacebookIcon color='primary'/>  Sign up with Facebook</button>
                         </Typography>
                         <br />
                          <Typography  id="modal-modal-title" variant="h6" component="h2">
