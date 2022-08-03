@@ -23,9 +23,7 @@
     grid-template-columns: 2fr 1fr;
     gap: 50px;
 }
-.home_bl_bottom>div{
-    border: 1px solid red;
-}
+
 .explore{
     border-bottom: 1px solid #cecece;
     display:grid;

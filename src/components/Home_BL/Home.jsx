@@ -7,6 +7,7 @@ import Login from '../gAuth/Login';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import EmailIcon from '@mui/icons-material/Email';
 import Box from '@mui/material/Box';
+import { Skeleton } from '@mui/material';
 const style = {
   position: 'absolute',
   top: '50%',
@@ -55,38 +56,42 @@ const Home = () => {
 
 
       <div className='home_bl_bottom'>
-          <div></div>
-          <div>
+        <div>
+          <Skeleton variant="text" />
+          <Skeleton variant="circular" width={40} height={40} />
+          <Skeleton variant="rectangular" width={210} height={118} />
+        </div>
+        <div>
           <div style={{ position: 'relative', right: '0' }} className="discover">
-          <div style={{ position: 'sticky', top: '110px' }}>
-            <h4>DISCOVER MORE OF WHAT MATTERS TO YOU</h4>
+            <div style={{ position: 'sticky', top: '110px' }}>
+              <h4>DISCOVER MORE OF WHAT MATTERS TO YOU</h4>
 
-            <div className="explore">
-              <button>Self</button>
-              <button>Relationships</button>
-              <button>Data Science</button>
-              <button>Programming</button>
-              <button>Productivity</button>
-              <button>Javascript</button>
-              <button>Development</button>
-              <button>Politics</button>
-              <button>Health</button>
-            </div>
+              <div className="explore">
+                <button>Self</button>
+                <button>Relationships</button>
+                <button>Data Science</button>
+                <button>Programming</button>
+                <button>Productivity</button>
+                <button>Javascript</button>
+                <button>Development</button>
+                <button>Politics</button>
+                <button>Health</button>
+              </div>
 
-            <div style={{ width: '100%', gap: '15px' }} className="info">
-              <p>Help</p>
-              <p>Status</p>
-              <p>Writers</p>
-              <p>Blog</p>
-              <p>Careers</p>
-              <p>Privacy</p>
-              <p>Terms</p>
-              <p>About</p>
+              <div style={{ width: '100%', gap: '15px' }} className="info">
+                <p>Help</p>
+                <p>Status</p>
+                <p>Writers</p>
+                <p>Blog</p>
+                <p>Careers</p>
+                <p>Privacy</p>
+                <p>Terms</p>
+                <p>About</p>
+              </div>
             </div>
-          </div>
-          </div>
           </div>
         </div>
+      </div>
 
       <Modal
         open={open}
