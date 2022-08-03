@@ -43,26 +43,13 @@ const Home = () => {
     })
   }
 
-    var months = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December',
-    ];
+    var months = ['January','February','March', 'April','May','June','July','August','September','October','November','December'];
 
   return (
     <div>
       <div style={{ backgroundColor: "#ffc017" }}>
         <Navbar />
-        <div className='Home_BL_Banner'>
+        <div className='Home_BL_Banner' style={{marginTop:"10px"}}>
           <div style={{ paddingLeft: '120px' }}>
              <h1 style={{ fontSize: "100px", fontWeight: "500" }}>Stay curious.</h1>
             <p style={{ fontSize: "30px", fontWeight: "500", color: "black" }}>
@@ -106,7 +93,7 @@ const Home = () => {
                 <h3>{el.title}</h3>
               </div>
               <div className='post-details-div' style={{color:"grey"}}>
-                <span>{Math.floor(Math.random()*31)+1}{months[Math.floor(Math.random()*months.length)]} </span>
+                <span>{Math.floor(Math.random()*31)+1} {months[Math.floor(Math.random()*months.length)]} </span>
                 <span>{Math.floor(Math.random()*10)+1} min read</span>
               </div>
               </div>
@@ -118,8 +105,8 @@ const Home = () => {
           }
         </div>
         <div>
-          <div style={{ position: 'relative', right: '0' }} className="discover">
-            <div style={{ position: 'sticky', top: '110px' }}>
+          <div  className="discover">
+            <div >
               <h4>DISCOVER MORE OF WHAT MATTERS TO YOU</h4>
 
               <div className="explore">

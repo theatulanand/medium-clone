@@ -25,7 +25,7 @@ const Navbar = () => {
     const handleClose = () => setOpen(false);
 
     return (
-        <div style={{ height: "70px", backgroundColor: "#ffc017", display: "flex", justifyContent: "space-around" }}>
+        <div style={{ height: "70px", backgroundColor: "#ffc017", display: "flex", justifyContent: "space-around",position:"sticky",width:"100%",marginBottom:"10px",top:"0",right:"0"}}>
             <div style={{ marginRight: "300px" }}>
                 <img src="https://i.ibb.co/8jW928K/medium-logo-removebg-preview.png" alt="medium-logo-removebg-preview" border="0" style={{ marginTop: "10px" }} />
             </div>
