@@ -19,7 +19,8 @@ import { Routes } from '../Pages/Routes';
 
 export const SideNavbar = () => {
     const dispatch = useDispatch();
-    const data = useSelector(state => state.auth.userData)
+    const data = useSelector(state => state.auth.userData);
+    console.log(data);
     const [home, setHome] = useState(false);
     const [noti, setNoti] = useState(false);
     const [book, setBook] = useState(false);

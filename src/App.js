@@ -24,12 +24,12 @@ function App() {
     gapi.load('client:auth2' , start)
   } )
   return (
-   <div>
+   <>
     {/* <Login />
     <Logout />   */}
     {/* <Home/> */}
     <Routes/>
-   </div>
+   </>
   );
 }
 
