@@ -16,6 +16,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { logout } from "../Redux/Auth/action"
 import Home from './Home_BL/Home';
 import { Routes } from '../Pages/Routes';
+import { Link } from 'react-router-dom';
 
 export const SideNavbar = () => {
     const dispatch = useDispatch();
@@ -87,9 +88,9 @@ export const SideNavbar = () => {
             </div>
             <div>
                 <div style={{ marginBottom: "1.5rem" }}>
-                    <button style={{ backgroundColor: "white", border: "none"  , marginLeft: "20px", cursor: "pointer"}} onClick={() => handleIcon("home")}>
+                   <Link to="/"> <button style={{ backgroundColor: "white", border: "none"  , marginLeft: "20px", cursor: "pointer"}} onClick={() => handleIcon("home")}>
                         {home ? <HomeIcon /> : <HomeOutlinedIcon />}
-                    </button>
+                    </button> </Link>
                 </div>
                 <div style={{ marginBottom: "1.5rem" }}>
                     <button style={{ backgroundColor: "white", border: "none" , marginLeft: "20px", cursor: "pointer" }} onClick={() => handleIcon("noti")}>
@@ -108,9 +109,9 @@ export const SideNavbar = () => {
                     </button>
                 </div>
                 <div style={{ marginBottom: "1.5rem" }}>
-                    <button style={{ backgroundColor: "white", border: "none" , marginLeft: "20px", cursor: "pointer" }} onClick={() => handleIcon("edit")}>
+                  <Link to="/create"><button style={{ backgroundColor: "white", border: "none" , marginLeft: "20px", cursor: "pointer" }} onClick={() => handleIcon("edit")}>
                         {edit ? <EditIcon /> : <EditOutlinedIcon />}
-                    </button>
+                    </button> </Link>
 
                 </div>
             </div>

@@ -45,3 +45,11 @@ a{
 .example::-webkit-scrollbar {
   display: none;
 }
+
+.jodit-status-bar {
+  visibility: hidden;
+}
+
+.jodit .jodit-workplace .jodit-wysiwyg, .jodit .jodit-workplace .jodit-wysiwyg_iframe, .jodit-container .jodit-workplace .jodit-wysiwyg, .jodit-container .jodit-workplace .jodit-wysiwyg_iframe{
+  height: 1000px;
+}

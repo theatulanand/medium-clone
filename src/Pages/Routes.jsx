@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { Route, Routes as Routing } from 'react-router-dom';
 import { IndividualBlog } from './IndividualBlog';
 import { Private } from './Private';
+import { Create } from './Create';
 
 
 export const Routes = () => {
@@ -15,6 +16,7 @@ export const Routes = () => {
         <Routing>
           <Route path="/" element={!data ? <Home /> : <Home_AL />}></Route>
           <Route path="/blogs/:id" element={<Private><IndividualBlog/></Private>}> </Route>
+          <Route path="/create" element={<Private><Create/></Private>}> </Route>
         </Routing>
       
     }
