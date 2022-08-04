@@ -119,23 +119,7 @@ export const SideSearchbar = () => {
       <div style={{ fontSize: "17px", fontWeight: "500", marginBottom: "1.5rem" }}>Reading List</div>
       <div style={{ fontSize: "14px", marginBottom: "4rem" }}>Click the Bookmark on any story to easily add it to your <br /> reading list or a custom list that you can share.</div>
       <div style={{ fontSize: "12px"}}>
-        Help
-
-        Status
-
-        Writers
-
-        Blog
-
-        Careers
-
-        Privacy
-
-        Terms
-
-        About
-        <br />
-        Knowable
+        Help  Status  Writers  Blog  Careers  Privacy  Terms  About   <br /> Knowable
       </div>
     </div>
   )
