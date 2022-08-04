@@ -1,4 +1,4 @@
-import { Avatar } from '@mui/material';
+import { Avatar, Button } from '@mui/material';
 import { width } from '@mui/system';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
@@ -7,10 +7,16 @@ import { SideNavbar } from '../components/SideNavbar'
 import share from "../Images/share.png"
 import follow from "../Images/follow.png"
 import more from "../Images/more.png"
+import { useSpeechSynthesis } from 'react-speech-kit';
+import PlayCircleFilledWhiteRoundedIcon from '@mui/icons-material/PlayCircleFilledWhiteRounded';
+import PauseCircleFilledRoundedIcon from '@mui/icons-material/PauseCircleFilledRounded';
 
 export const IndividualBlog = () => {
   const { id } = useParams();
   const [blog, setBlog] = useState({});
+  const { speak , cancel} = useSpeechSynthesis();
+  const [listen, setListen] = useState(false)
+
 
   useEffect(() => {
     axios({
@@ -21,6 +27,11 @@ export const IndividualBlog = () => {
       console.log(res.data);
     })
   }, [])
+
+  const handleListen = () =>{
+    speak({ text: blog.content })
+    setListen(!listen)
+  }
 
   return (
     <>
@@ -41,6 +52,11 @@ export const IndividualBlog = () => {
                     <h3>{blog.author}</h3>
                     <p style={{ color: "gray", marginTop: "-20px" }}>Feb 14 ·5 min read</p>
                   </div>
+                  {
+                    !listen ? <PlayCircleFilledWhiteRoundedIcon style={{color: "blue", fontSize: "40px"}}  onClick={handleListen}/> : <PauseCircleFilledRoundedIcon style={{color: "blue", fontSize: "40px"}} onClick={() => {cancel(); setListen(!listen)}}/>
+                  }
+                  
+                  
                 </div>
 
                 <div>
