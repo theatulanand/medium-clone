@@ -1,9 +1,11 @@
 import './App.css';
-import { SideNavbar } from './components/SideNavbar';
+import { SideSearchbar } from './components/SideSearchbar';
+// import { SideNavbar } from './components/SideNavbar';
 function App() {
   return (
     <div className="App">
-      <SideNavbar />      
+      {/* <SideNavbar />       */}
+      <SideSearchbar />
     </div>
   );
 }
