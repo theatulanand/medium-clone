@@ -1,5 +1,4 @@
 .App {
-  text-align: center;
 }
 
 .App-logo {
@@ -35,4 +34,12 @@
   to {
     transform: rotate(360deg);
   }
+}
+.navIcons{
+  margin-left: 1.5rem;
+}
+.temp{
+  display: grid;
+  grid-template-columns: 7% 68% 25%;
+
 }
