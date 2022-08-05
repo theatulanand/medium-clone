@@ -1,26 +1,32 @@
-import EditIcon from '@mui/icons-material/Edit';    
+import EditIcon from '@mui/icons-material/Edit';
 import HomeIcon from '@mui/icons-material/Home';
 import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 import BookmarksIcon from '@mui/icons-material/Bookmarks';
-import HorizontalRuleIcon from '@mui/icons-material/HorizontalRule';
+//import HorizontalRuleIcon from '@mui/icons-material/HorizontalRule';
 import React, { useState } from 'react'
 import ArticleIcon from '@mui/icons-material/Article';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
-import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
+//import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
 import NotificationsActiveOutlinedIcon from '@mui/icons-material/NotificationsActiveOutlined';
 import BookmarksOutlinedIcon from '@mui/icons-material/BookmarksOutlined';
 import ArticleOutlinedIcon from '@mui/icons-material/ArticleOutlined';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import { Button, Popover } from '@mui/material';
+import { useSelector, useDispatch } from 'react-redux';
+import { logout } from "../Redux/Auth/action"
+import Home from './Home_BL/Home';
+import { Routes } from '../Pages/Routes';
+import { Link } from 'react-router-dom';
 
 export const SideNavbar = () => {
-    const [temp,setTemp] = useState(false);
+    const dispatch = useDispatch();
+    const data = useSelector(state => state.auth.userData);
+    console.log(data);
     const [home, setHome] = useState(false);
     const [noti, setNoti] = useState(false);
     const [book, setBook] = useState(false);
     const [article, setArticle] = useState(false);
     const [edit, setEdit] = useState(false);
-
 
     const handleIcon = (iconName) => {
         switch (iconName) {
@@ -64,10 +70,15 @@ export const SideNavbar = () => {
                 break;
         }
     }
-    const [anchor,setAnchor] = useState(null);
-    const openPopover = (event) =>{
+    const [anchor, setAnchor] = useState(null);
+    const openPopover = (event) => {
         setAnchor(event.currentTarget);
         console.log("yash");
+    }
+
+    const handleLogout = () =>{
+        dispatch(logout());
+        window.location.reload(false);
     }
 
     return (
@@ -77,56 +88,53 @@ export const SideNavbar = () => {
             </div>
             <div>
                 <div style={{ marginBottom: "1.5rem" }}>
-                    <button style={{ backgroundColor: "white", border: "none" }} onClick={() => handleIcon("home")}>
+                   <Link to="/"> <button style={{ backgroundColor: "white", border: "none"  , marginLeft: "20px", cursor: "pointer"}} onClick={() => handleIcon("home")}>
                         {home ? <HomeIcon /> : <HomeOutlinedIcon />}
-                    </button>
+                    </button> </Link>
                 </div>
                 <div style={{ marginBottom: "1.5rem" }}>
-                    <button style={{ backgroundColor: "white", border: "none" }} onClick={() => handleIcon("noti")}>
+                    <button style={{ backgroundColor: "white", border: "none" , marginLeft: "20px", cursor: "pointer" }} onClick={() => handleIcon("noti")}>
                         {noti ? <NotificationsActiveIcon /> : <NotificationsActiveOutlinedIcon />}
                     </button>
                 </div>
                 <div style={{ marginBottom: "1.5rem" }}>
-                    <button style={{ backgroundColor: "white", border: "none" }} onClick={() => handleIcon("book")}>
+                    <button style={{ backgroundColor: "white", border: "none" , marginLeft: "20px", cursor: "pointer" }} onClick={() => handleIcon("book")}>
                         {book ? <BookmarksIcon /> : <BookmarksOutlinedIcon />}
                     </button>
 
                 </div>
                 <div style={{ marginBottom: "1.5rem" }}>
-                    <button style={{ backgroundColor: "white", border: "none" }} onClick={() => handleIcon("article")}>
+                    <button style={{ backgroundColor: "white", border: "none" , marginLeft: "20px", cursor: "pointer" }} onClick={() => handleIcon("article")}>
                         {article ? <ArticleIcon /> : <ArticleOutlinedIcon />}
                     </button>
                 </div>
                 <div style={{ marginBottom: "1.5rem" }}>
-                    <button style={{ backgroundColor: "white", border: "none" }} onClick={() => handleIcon("edit")}>
+                  <Link to="/create"><button style={{ backgroundColor: "white", border: "none" , marginLeft: "20px", cursor: "pointer" }} onClick={() => handleIcon("edit")}>
                         {edit ? <EditIcon /> : <EditOutlinedIcon />}
-                    </button>
+                    </button> </Link>
 
                 </div>
             </div>
-            <div style={{ marginBottom: "1.5rem" }}>
-                <HorizontalRuleIcon style={{ color: "grey" }} />
-            </div>
-            <div style={{ marginBottom: "1.5rem" }}>
+            {/* <div style={{ marginBottom: "1.5rem" , marginLeft: "20px" }}>
                 <DriveFileRenameOutlineIcon />
-            </div>
+            </div> */}
             <Popover
-            open={Boolean(anchor)}
-            anchorEl={anchor} 
-            anchorOrigin={{
-                vertical:"bottom",
-                horizontal:"right"
-            }}
-            transformOrigin={{
-                vertical:"bottom",
-                horizontal:"left"
-            }}
+                open={Boolean(anchor)}
+                anchorEl={anchor}
+                anchorOrigin={{
+                    vertical: "bottom",
+                    horizontal: "right"
+                }}
+                transformOrigin={{
+                    vertical: "bottom",
+                    horizontal: "left"
+                }}
             >
-                <Button variant='Danger' onClick={()=>setAnchor(null)}>Sign out</Button>
+                <Button variant='Danger' onClick={() => { setAnchor(null); handleLogout() }}>Sign out</Button>
             </Popover>
             <button style={{ backgroundColor: "white", border: "none" }} onClick={openPopover}>
-                <div style={{ marginTop: "6rem" }}>
-                    <img style={{ width: "35%", borderRadius: "100%" }} src="https://www.jetsetter.com//uploads/sites/7/2019/04/GettyImages-920879930-1380x1380.jpg" alt="" />
+                <div style={{ marginTop: "7rem" }}>
+                    <img style={{ width: "60%", borderRadius: "100%" }} src={data.imageUrl} alt="" />
                 </div>
             </button>
 
