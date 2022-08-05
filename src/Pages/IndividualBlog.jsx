@@ -10,12 +10,14 @@ import more from "../Images/more.png"
 import { useSpeechSynthesis } from 'react-speech-kit';
 import PlayCircleFilledWhiteRoundedIcon from '@mui/icons-material/PlayCircleFilledWhiteRounded';
 import PauseCircleFilledRoundedIcon from '@mui/icons-material/PauseCircleFilledRounded';
+import bookmarkImg from "../Images/bookmark.png"
 
 export const IndividualBlog = () => {
   const { id } = useParams();
   const [blog, setBlog] = useState({});
   const { speak , cancel} = useSpeechSynthesis();
-  const [listen, setListen] = useState(false)
+  const [listen, setListen] = useState(false);
+  const [bookmark, setBookmark] = useState(false);
 
 
   useEffect(() => {
@@ -25,12 +27,39 @@ export const IndividualBlog = () => {
     }).then((res) => {
       setBlog(res.data);
       console.log(res.data);
+
+      axios({
+        method: "get",
+        url: `http://localhost:8080/bookmarks/${id}`
+      }).then(() => {
+        setBookmark(true);
+      })
     })
-  }, [])
+  }, [id])
 
   const handleListen = () =>{
     speak({ text: blog.content })
     setListen(!listen)
+  }
+
+  const handleBookmark = () => {
+    
+    axios({
+      method: "post",
+      url: `http://localhost:8080/bookmarks`,
+      data: blog
+    }).then(() => {
+      setBookmark(!bookmark);
+    })
+  }
+
+  const handleDelete = (id) => {
+    axios({
+      method: "delete",
+      url: `http://localhost:8080/bookmarks/${id}`,
+    }).then(() => {
+      setBookmark(!bookmark);
+    })
   }
 
   return (
@@ -60,7 +89,10 @@ export const IndividualBlog = () => {
                 </div>
 
                 <div>
-                  <img src={share} alt="" />
+                  {
+                    !bookmark ? <img onClick={() => handleBookmark()} src={share} alt="" /> : <img onClick={() => handleDelete(blog.id)} src={bookmarkImg} alt="" />
+                  }
+                 
                 </div>
 
               </div>

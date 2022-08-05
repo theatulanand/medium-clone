@@ -21,7 +21,6 @@ import { Link } from 'react-router-dom';
 export const SideNavbar = () => {
     const dispatch = useDispatch();
     const data = useSelector(state => state.auth.userData);
-    console.log(data);
     const [home, setHome] = useState(false);
     const [noti, setNoti] = useState(false);
     const [book, setBook] = useState(false);
@@ -98,15 +97,15 @@ export const SideNavbar = () => {
                     </button>
                 </div>
                 <div style={{ marginBottom: "1.5rem" }}>
-                    <button style={{ backgroundColor: "white", border: "none" , marginLeft: "20px", cursor: "pointer" }} onClick={() => handleIcon("book")}>
+                 <Link to= "/bookmarks"><button style={{ backgroundColor: "white", border: "none" , marginLeft: "20px", cursor: "pointer" }} onClick={() => handleIcon("book")}>
                         {book ? <BookmarksIcon /> : <BookmarksOutlinedIcon />}
-                    </button>
+                    </button> </Link>
 
                 </div>
                 <div style={{ marginBottom: "1.5rem" }}>
-                    <button style={{ backgroundColor: "white", border: "none" , marginLeft: "20px", cursor: "pointer" }} onClick={() => handleIcon("article")}>
+                   <Link to = "/stories"> <button style={{ backgroundColor: "white", border: "none" , marginLeft: "20px", cursor: "pointer" }} onClick={() => handleIcon("article")}>
                         {article ? <ArticleIcon /> : <ArticleOutlinedIcon />}
-                    </button>
+                    </button> </Link>
                 </div>
                 <div style={{ marginBottom: "1.5rem" }}>
                   <Link to="/create"><button style={{ backgroundColor: "white", border: "none" , marginLeft: "20px", cursor: "pointer" }} onClick={() => handleIcon("edit")}>
@@ -134,7 +133,7 @@ export const SideNavbar = () => {
             </Popover>
             <button style={{ backgroundColor: "white", border: "none" }} onClick={openPopover}>
                 <div style={{ marginTop: "7rem" }}>
-                    <img style={{ width: "60%", borderRadius: "100%" }} src={data.imageUrl} alt="" />
+                    <img style={{ width: "60%", borderRadius: "100%" }} src={data.imageUrl} alt="img" />
                 </div>
             </button>
 
