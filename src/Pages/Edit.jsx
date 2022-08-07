@@ -73,7 +73,7 @@ export const Edit = () => {
                         </div>
                         <div style={{ alignItems: "center", display: "flex" }}>
                             <div>
-                                <button style={{ fontSize: "17px", border: "none", backgroundColor: "green", color: "white", padding: "5px", borderRadius: "20px", paddingLeft: "10px", paddingRight: "10px", cursor: "pointer" }} onClick={postData}>Edit</button>
+                                <button style={{ fontSize: "17px", border: "none", backgroundColor: "green", color: "white", padding: "5px", borderRadius: "20px", paddingLeft: "10px", paddingRight: "10px", cursor: "pointer" }} onClick={postData}>Update</button>
                             </div>
                             <img src={bell} alt="" />
                             <img style={{ width: "40px", borderRadius: "100px" }} src={user.imageUrl} alt="" />
