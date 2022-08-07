@@ -1,0 +1,35 @@
+.payment_container{
+    margin: auto;
+    width: 600px;
+    text-align: center;
+}
+.payment_container>h1{
+    font-weight: 400;
+}
+.payment_container>h3{
+    font-weight: 300;
+}
+.select_Button_Payment{
+    border: 1px solid #cecece;
+    margin: auto;
+    width: 95%;
+    height: 70px;
+    display: flex;
+    padding: 10px;
+    border-radius: 5px;
+    padding-bottom: 30px;
+}
+:hover.select_Button_Payment {
+    border: 1px solid green;
+}
+.payment_detail_container{
+    border: 1px solid #cecece;
+    margin: auto;
+    width: 95%;
+    font-family:"Helvetica Neue, Helvetica, Arial, sans-serif";
+    text-align: left;
+    margin-bottom: 50px;
+    padding: 10px;
+    border-radius: 5px;
+}
+

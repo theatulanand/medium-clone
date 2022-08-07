@@ -63,7 +63,7 @@ export const Bookmark = () => {
       <div>
         <div style={{ borderLeft: "1px solid gray", height: "100%", position: "sticky" }}>
           <div style={{ width: "100%", margin: "auto", marginTop: "50px" }}>
-            <button style={{ fontSize: "12px", padding: "10px", paddingLeft: "80px", paddingRight: "80px", marginLeft: "30px", borderRadius: "30px", backgroundColor: "black", color: "white", cursor: "pointer" }}>Get unlimited access</button>
+          <Link to="/premium"><button style={{ fontSize: "12px", padding: "10px", paddingLeft: "80px", paddingRight: "80px", marginLeft: "30px", borderRadius: "30px", backgroundColor: "black", color: "white", cursor: "pointer" }}>Get unlimited access</button></Link>
           </div>
           <div style={{ marginTop: "30px" }}>
             <input style={{ fontSize: "15px", padding: "10px", paddingLeft: "30px", paddingRight: "50px", marginLeft: "30px", borderRadius: "30px", cursor: "pointer" }} type="text" placeholder='Search' />

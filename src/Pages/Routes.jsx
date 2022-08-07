@@ -9,6 +9,7 @@ import { Create } from './Create';
 import { Bookmark } from './Bookmark';
 import { Blogs } from './Blogs';
 import { Edit } from './Edit';
+import  Payment  from '../payment/Payment'
 
 
 export const Routes = () => {
@@ -23,6 +24,7 @@ export const Routes = () => {
           <Route path="/edit/:id" element={<Private><Edit/></Private>}> </Route>
           <Route path="/bookmarks" element={<Private><Bookmark/></Private>}> </Route>
           <Route path="/stories" element={<Private><Blogs/></Private>}> </Route>
+          <Route path="/premium" element={<Payment/>}> </Route>
         </Routing>
       
     }

@@ -14,8 +14,8 @@ import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import { Button, Popover } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from "../Redux/Auth/action"
-import Home from './Home_BL/Home';
-import { Routes } from '../Pages/Routes';
+// import Home from './Home_BL/Home';
+// import { Routes } from '../Pages/Routes';
 import { Link } from 'react-router-dom';
 
 export const SideNavbar = () => {

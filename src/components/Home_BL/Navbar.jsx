@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import Login from '../gAuth/Login';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import EmailIcon from '@mui/icons-material/Email';
+import { Link } from 'react-router-dom';
 
 const style = {
     position: 'absolute',
@@ -31,7 +31,7 @@ const Navbar = () => {
             </div>
             <div style={{ display: "flex", gap: "30px" }}>
                 <p>Our Story</p>
-                <p>Membership</p>
+                <Link to="/premium"><p>Membership</p></Link>
                 <p>Write</p>
                 <p style={{cursor: "pointer",}} onClick={handleOpen}>Sign in</p>
                 <button onClick={handleOpen} style={{ cursor: "pointer", backgroundColor: "black", width: "120px", color: "white", borderRadius: "30px", height: "45px", marginTop: "10px", fontWeight: "bold" }}>
