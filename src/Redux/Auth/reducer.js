@@ -1,7 +1,7 @@
 import { LOGIN, LOGOUT } from "./actionTypes";
 
 const initialState ={
-    userData :[]
+    userData : null
 }
 export const reducer = (state= initialState , action) => {
     switch (action.type) {
@@ -11,7 +11,7 @@ export const reducer = (state= initialState , action) => {
         }
         case LOGOUT : return{
             ...state,
-            userData:initialState
+            userData: initialState
         }
     
        default: return state

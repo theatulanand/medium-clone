@@ -1,4 +1,5 @@
 .App {
+  text-align: center;
 }
 
 .App-logo {
@@ -35,11 +36,20 @@
     transform: rotate(360deg);
   }
 }
-.navIcons{
-  margin-left: 1.5rem;
-}
-.temp{
-  display: grid;
-  grid-template-columns: 7% 68% 25%;
 
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+.example::-webkit-scrollbar {
+  display: none;
+}
+
+.jodit-status-bar {
+  visibility: hidden;
+}
+
+.jodit .jodit-workplace .jodit-wysiwyg, .jodit .jodit-workplace .jodit-wysiwyg_iframe, .jodit-container .jodit-workplace .jodit-wysiwyg, .jodit-container .jodit-workplace .jodit-wysiwyg_iframe{
+  height: 1000px;
 }

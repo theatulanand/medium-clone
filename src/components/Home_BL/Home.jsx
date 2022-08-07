@@ -44,7 +44,7 @@ const Home = () => {
   }
 
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-  const count=[1,2,3,4,5]
+
   return (
     <div>
       <div style={{ backgroundColor: "#ffc017" }}>
@@ -78,14 +78,11 @@ const Home = () => {
       <div className='home_bl_bottom'>
         <div>
           {
-            isloading ? 
-            count.map((el) => (
-              <>
+            isloading ? <>
               <Skeleton variant="text" />
               <Skeleton variant="circular" width={40} height={40} />
               <Skeleton variant="rectangular" width={210} height={118} />
-            </>
-            )) :
+            </> :
               data.map((el) => (
                 <div key= {el.id} style={{ cursor: "pointer", display: "grid", gridTemplateColumns: "2fr 1fr", marginTop: "50px" }}>
                   <div>
