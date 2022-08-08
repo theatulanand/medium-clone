@@ -19,9 +19,10 @@ export const Create = () => {
             author: user.name,
             title,
             avatar: user.imageUrl,
-            thumbnail: "https://miro.medium.com/max/1400/0*-vJzXyULgTy9aEJj",
-            brief: title + title,
-            content
+            thumbnail: "https://miro.medium.com/max/700/1*O7TFrhn8jSO7bagScH-KTw.jpeg",
+            brief: "When you don’t feel good about yourself, it can cause problems in your life. Here are some tips to help you feel better about yourself. Stop saying bad things about yourself and start looking at the things you do every day that make you a wonderful person. If you don’t feel good about yourself after spending time with someone, you need to cut back on the time you spend with them.",
+            content,
+            time: "8 August "
         }
 
         axios({
@@ -31,7 +32,7 @@ export const Create = () => {
         }).then(() => {
             setTitle('');
             setContent('');
-            alert("Blog Posted");
+           alert(title + " Published");
 
             axios({
                 method: "post",

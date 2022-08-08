@@ -75,12 +75,12 @@ export const Blogs = () => {
 
 
                                             <div className='post-details-div' style={{ color: "grey" }}>
-                                                <span>{Math.floor(Math.random() * 31) + 1} {months[Math.floor(Math.random() * months.length)]} </span>
+                                                <span>{el.time ? el.time :  <>{Math.floor(Math.random() * 31) + 1} {months[Math.floor(Math.random() * months.length)]}</>} </span>
                                                 <span>{Math.floor(Math.random() * 10) + 1} min read</span>
                                             </div>
                                         </div>
                                         <div>
-                                            <img style={{ width: "180px", height: "130px" }} src={el.thumbnail} alt="thumbnail" />
+                                            <img style={{ width: "180px", height: "130px", marginTop: "70px", marginLeft: "20px" }} src={el.thumbnail} alt="thumbnail" />
                                         </div>
                                     </div>
 
@@ -95,7 +95,7 @@ export const Blogs = () => {
 
             <div style={{ borderLeft: "1px solid gray" }}>
                 <div style={{ width: "100%", margin: "auto", marginTop: "50px" }}>
-                    <button style={{ fontSize: "12px", padding: "10px", paddingLeft: "80px", paddingRight: "80px", marginLeft: "30px", borderRadius: "30px", backgroundColor: "black", color: "white", cursor: "pointer" }}>Get unlimited access</button>
+                 <Link to="/premium"><button style={{ fontSize: "12px", padding: "10px", paddingLeft: "80px", paddingRight: "80px", marginLeft: "30px", borderRadius: "30px", backgroundColor: "black", color: "white", cursor: "pointer" }}>Get unlimited access</button></Link> 
                 </div>
                 <div style={{ marginTop: "30px" }}>
                     <input style={{ fontSize: "15px", padding: "10px", paddingLeft: "30px", paddingRight: "50px", marginLeft: "30px", borderRadius: "30px", cursor: "pointer" }} type="text" placeholder='Search' />

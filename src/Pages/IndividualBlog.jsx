@@ -79,10 +79,10 @@ export const IndividualBlog = () => {
                   </div>
                   <div>
                     <h3>{blog.author}</h3>
-                    <p style={{ color: "gray", marginTop: "-20px" }}>Feb 14 ·5 min read</p>
+                    <p style={{ color: "gray", marginTop: "-20px" }}>{blog.time ? blog.time + " 5 min read" : "Feb 14 ·5 min read"}</p>
                   </div>
                   {
-                    !listen ? <PlayCircleFilledWhiteRoundedIcon style={{color: "blue", fontSize: "40px"}}  onClick={handleListen}/> : <PauseCircleFilledRoundedIcon style={{color: "blue", fontSize: "40px"}} onClick={() => {cancel(); setListen(!listen)}}/>
+                    !listen ? <PlayCircleFilledWhiteRoundedIcon style={{color: "blue", fontSize: "40px", cursor: "pointer"}}  onClick={handleListen}/> : <PauseCircleFilledRoundedIcon style={{color: "blue", fontSize: "40px" , cursor: "pointer"}} onClick={() => {cancel(); setListen(!listen)}}/>
                   }
                   
                   
@@ -113,8 +113,11 @@ export const IndividualBlog = () => {
           <div style={{ marginTop: "30px", marginLeft: "10%" }}>
             <img style={{ width: "100px", height: "100px", borderRadius: "100%" }} src={blog.avatar} alt="" />
             <h3>{blog.author}</h3>
-            <p>Enthusiast Stock Market Analyst, Assertive Content Writer by passion, and Mechanical Engineer by profession.</p>
-            <img src={follow} alt="" />
+            <p>{blog.time ? "Aspiring Full Stack Web Developer": "Enthusiast Stock Market Analyst, Assertive Content Writer by passion, and Mechanical Engineer by profession."}</p>
+            {
+              blog.time ? "" : <img src={follow} alt="" />
+            }
+            
           </div>
           <div style={{ marginTop: "30px", marginLeft: "3%" }}>
             <h3>More from medium</h3>

@@ -47,12 +47,12 @@ export const Bookmark = () => {
                     <p style={{ color: "gray" }}>{el.brief}</p>
                   </div>
                   <div className='post-details-div' style={{ color: "grey" }}>
-                    <span>{Math.floor(Math.random() * 31) + 1} {months[Math.floor(Math.random() * months.length)]} </span>
+                    <span>{el.time ? el.time :  <>{Math.floor(Math.random() * 31) + 1} {months[Math.floor(Math.random() * months.length)]}</>} </span>
                     <span>{Math.floor(Math.random() * 10) + 1} min read</span>
                   </div>
                 </div>
                 <div>
-                  <img style={{ width: "180px", height: "130px" }} src={el.thumbnail} alt="thumbnail" />
+                  <img style={{ width: "180px", height: "130px", marginTop: "70px", marginLeft: "20px" }} src={el.thumbnail} alt="thumbnail" />
                 </div>
               </div>
             </Link>
