@@ -24,7 +24,7 @@ export const Blogs = () => {
 
     const handleFetch = () => {
         setLoading(true)
-        fetch(`http://localhost:8080/postedBlogs?_sort=id&_order=desc`)
+        fetch(`https://e-com-fake-server.herokuapp.com/postedBlogs?_sort=id&_order=desc`)
             .then((res) => res.json())
             .then((res) => {
                 setData(res);
@@ -34,8 +34,8 @@ export const Blogs = () => {
     const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
     const handleDelete = (id) => {
-        axios.delete(`http://localhost:8080/postedBlogs/${id}`).then(() => {
-            axios.delete(`http://localhost:8080/blogs/${id + 12}`);
+        axios.delete(`https://e-com-fake-server.herokuapp.com/postedBlogs/${id}`).then(() => {
+            axios.delete(`https://e-com-fake-server.herokuapp.com/blogs/${id + 12}`);
             handleFetch()
         })
     }
@@ -58,7 +58,7 @@ export const Blogs = () => {
                                             <div style={{ display: "flex" }}>
                                                 <Avatar alt="Remy Sharp" src={el.avatar} />
                                                 <h4 style={{ marginTop: "12px", marginLeft: "5px" }}>{el.author}</h4>
-                                                <div style={{ marginLeft: "10px", paddingTop: "15px", color: "green" }}><Link to = {`/edit/${el.id}`}><EditIcon style={{ fontSize: "18px" }} /></Link></div>
+                                                <div style={{ marginLeft: "10px", paddingTop: "15px", color: "green" }}><Link to={`/edit/${el.id}`}><EditIcon style={{ fontSize: "18px" }} /></Link></div>
                                                 <div style={{ marginLeft: "10px", paddingTop: "15px", color: "red" }}><DeleteIcon onClick={() => handleDelete(el.id)} style={{ fontSize: "18px" }} /></div>
                                             </div>
                                             <Link to={`/blogs/${el.id + 12}`}>
@@ -75,7 +75,7 @@ export const Blogs = () => {
 
 
                                             <div className='post-details-div' style={{ color: "grey" }}>
-                                                <span>{el.time ? el.time :  <>{Math.floor(Math.random() * 31) + 1} {months[Math.floor(Math.random() * months.length)]}</>} </span>
+                                                <span>{el.time ? el.time : <>{Math.floor(Math.random() * 31) + 1} {months[Math.floor(Math.random() * months.length)]}</>} </span>
                                                 <span>{Math.floor(Math.random() * 10) + 1} min read</span>
                                             </div>
                                         </div>
@@ -95,7 +95,7 @@ export const Blogs = () => {
 
             <div style={{ borderLeft: "1px solid gray" }}>
                 <div style={{ width: "100%", margin: "auto", marginTop: "50px" }}>
-                 <Link to="/premium"><button style={{ fontSize: "12px", padding: "10px", paddingLeft: "80px", paddingRight: "80px", marginLeft: "30px", borderRadius: "30px", backgroundColor: "black", color: "white", cursor: "pointer" }}>Get unlimited access</button></Link> 
+                    <Link to="/premium"><button style={{ fontSize: "12px", padding: "10px", paddingLeft: "80px", paddingRight: "80px", marginLeft: "30px", borderRadius: "30px", backgroundColor: "black", color: "white", cursor: "pointer" }}>Get unlimited access</button></Link>
                 </div>
                 <div style={{ marginTop: "30px" }}>
                     <input style={{ fontSize: "15px", padding: "10px", paddingLeft: "30px", paddingRight: "50px", marginLeft: "30px", borderRadius: "30px", cursor: "pointer" }} type="text" placeholder='Search' />

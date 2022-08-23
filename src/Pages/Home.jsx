@@ -4,7 +4,7 @@ import { SideNavbar } from '../components/SideNavbar'
 import header from "../Images/header.png"
 import { Link } from "react-router-dom"
 import reading from "../Images/reading.png"
-import whotofollow  from '../Images/whotofollow.png'
+import whotofollow from '../Images/whotofollow.png'
 
 export const Home = () => {
   const [data, setData] = useState([])
@@ -17,7 +17,7 @@ export const Home = () => {
 
   const handleFetch = () => {
     setLoading(true)
-    fetch(`http://localhost:8080/blogs?_sort=id&_order=desc`)
+    fetch(`https://e-com-fake-server.herokuapp.com/blogs?_sort=id&_order=desc`)
       .then((res) => res.json())
       .then((res) => {
         setData(res);
@@ -28,7 +28,7 @@ export const Home = () => {
   return (
     <div style={{ display: "flex" }}>
       <div><SideNavbar /></div>
-      <div className ="example" style={{ marginLeft: "150px", width: "70%", height: "1300px" , overflow: "scroll" }}>
+      <div className="example" style={{ marginLeft: "150px", width: "70%", height: "1300px", overflow: "scroll" }}>
         <img src={header} />
         {
           data.map((el) => (
@@ -46,7 +46,7 @@ export const Home = () => {
                     <p style={{ color: "gray" }}>{el.brief}</p>
                   </div>
                   <div className='post-details-div' style={{ color: "grey" }}>
-                    <span>{el.time ? el.time :  <>{Math.floor(Math.random() * 31) + 1} {months[Math.floor(Math.random() * months.length)]}</>} </span>
+                    <span>{el.time ? el.time : <>{Math.floor(Math.random() * 31) + 1} {months[Math.floor(Math.random() * months.length)]}</>} </span>
                     <span>{Math.floor(Math.random() * 10) + 1} min read</span>
                   </div>
                 </div>
@@ -70,7 +70,7 @@ export const Home = () => {
           <div style={{ marginTop: "30px" }}>
             <img src={reading} alt="" />
           </div>
-          <div style={{marginLeft: "30px"}}>
+          <div style={{ marginLeft: "30px" }}>
             <img src={whotofollow} alt="" />
           </div>
         </div>

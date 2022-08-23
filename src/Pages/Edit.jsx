@@ -5,7 +5,7 @@ import { SideNavbar } from '../components/SideNavbar'
 import logo from "../Images/logo.png"
 import bell from "../Images/bellicon.png"
 import axios from 'axios'
-import {  useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 export const Edit = () => {
     const user = useSelector(state => state.auth.userData);
@@ -14,7 +14,7 @@ export const Edit = () => {
     const { id } = useParams();
     const [blog, setBlog] = useState({});
     const [title, setTitle] = useState();
-    
+
 
 
 
@@ -23,15 +23,15 @@ export const Edit = () => {
             author: user.name,
             title,
             avatar: user.imageUrl,
-            thumbnail: "https://miro.medium.com/max/700/1*O7TFrhn8jSO7bagScH-KTw.jpeg",
-            brief: "When you don’t feel good about yourself, it can cause problems in your life. Here are some tips to help you feel better about yourself. Stop saying bad things about yourself and start looking at the things you do every day that make you a wonderful person. If you don’t feel good about yourself after spending time with someone, you need to cut back on the time you spend with them.",
+            thumbnail: "https://miro.medium.com/max/700/0*1EmecBFxPe1sFP1U",
+            brief: "Today, our world is full of distractions. Because of that, we can’t focus, and our attention spans are lower than ever.Yes, I said it. Your attention span is low. In fact, the average human attention span is 7-seconds, which is lower than those of goldfish. Isn’t that just mind-blowing?",
             content,
             time: "8 August"
         }
 
         axios({
             method: "patch",
-            url: `http://localhost:8080/blogs/${Number(id) + Number(12)}`,
+            url: `https://e-com-fake-server.herokuapp.com/blogs/${Number(id) + Number(12)}`,
             data
         }).then(() => {
             setTitle('');
@@ -40,7 +40,7 @@ export const Edit = () => {
 
             axios({
                 method: "patch",
-                url: `http://localhost:8080/postedblogs/${id}`,
+                url: `https://e-com-fake-server.herokuapp.com/postedblogs/${id}`,
                 data
             }).then(() => {
                 return navigate("/stories");
@@ -51,13 +51,13 @@ export const Edit = () => {
     useEffect(() => {
         axios({
             method: "get",
-            url: `http://localhost:8080/postedBlogs/${id}`,
+            url: `https://e-com-fake-server.herokuapp.com/postedBlogs/${id}`,
         }).then((res) => {
             setBlog(res.data);
             setTitle(res.data.title);
             setContent(res.data.content);
         })
-    },[id])
+    }, [id])
 
 
     return (
@@ -79,7 +79,7 @@ export const Edit = () => {
                             <img style={{ width: "40px", borderRadius: "100px" }} src={user.imageUrl} alt="" />
                         </div>
                     </div>
-                    <input value={title} onChange={(e) => {setTitle(e.target.value)}} type="text" placeholder='Title' style={{ width: "1050px", fontSize: "40px", marginBottom: "10px", border: "none", padding: "20px" }} />
+                    <input value={title} onChange={(e) => { setTitle(e.target.value) }} type="text" placeholder='Title' style={{ width: "1050px", fontSize: "40px", marginBottom: "10px", border: "none", padding: "20px" }} />
                 </div>
                 <JoditEditor value={content} onChange={(text) => setContent(text)} />
             </div>

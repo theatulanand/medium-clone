@@ -35,7 +35,7 @@ const Home = () => {
 
   const handleFetch = () => {
     setLoading(true)
-    fetch(`http://localhost:8080/blogs`)
+    fetch(`https://e-com-fake-server.herokuapp.com/blogs`)
       .then((res) => res.json())
       .then((res) => {
         setData(res);
@@ -84,7 +84,7 @@ const Home = () => {
               <Skeleton variant="rectangular" width={210} height={118} />
             </> :
               data.map((el) => (
-                <div key= {el.id} style={{ cursor: "pointer", display: "grid", gridTemplateColumns: "2fr 1fr", marginTop: "50px" }}>
+                <div key={el.id} style={{ cursor: "pointer", display: "grid", gridTemplateColumns: "2fr 1fr", marginTop: "50px" }}>
                   <div>
                     <div style={{ display: "flex" }}>
                       <Avatar alt="Remy Sharp" src={el.avatar} /> <h5 style={{ marginTop: "12px", marginLeft: "5px" }}>{el.author}</h5>
